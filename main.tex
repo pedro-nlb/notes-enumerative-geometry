@@ -703,7 +703,7 @@ A stratification is called \textit{affine} if each $U_{i}$ is isomorphic to an a
 \end{prop}
 
 \begin{cor}[B\'{e}zout]
-    If $X_{1},\ldots,X_{k}\subseteq \mathbb{P}^{n}$ are subvarieties of codimensions $c_{1},\ldots,c_{k}$ respectively, with $\sum c_{i}\leqslant n$ and intersecting generically transversely, then
+    If $X_{1},\ldots,X_{k}\subseteq \mathbb{P}^{n}$ are subvarieties of codimensions $c_{1},\ldots,c_{k}$ respectively, with $\sum c_{i}\leq n$ and intersecting generically transversely, then
     \[ \deg(X_{1}\cap \ldots \cap X_{k})=\prod \deg(X_{i}). \]
     In particular, if $X,Y\subseteq \mathbb{P}^{n}$ have complementary dimensions and intersect generically transversely, then
     \[ |X\cap Y|=\deg(X)\deg(Y). \]
@@ -933,13 +933,13 @@ In the title, by \textit{random} we mean in general position; and by \textit{spa
 \subsection{Recap}
 
 \begin{defn}
-    For $k\leqslant \dim(V)=n$, the \textit{Grsassmannian} $G(k,V)$ is defined as the set of $k$-dimensional vector subspaces of $V$ together with the projective variety structure induced by the Pl\"{u}cker embedding:
+    For $k\leq \dim(V)=n$, the \textit{Grsassmannian} $G(k,V)$ is defined as the set of $k$-dimensional vector subspaces of $V$ together with the projective variety structure induced by the Pl\"{u}cker embedding:
     \begin{align*}
 	G(k,n) & \longrightarrow \mathbb{P}(\wedge^{k} V) \\
 	\langle w_{1},\ldots,w_{k}\rangle & \longmapsto [w_{1}\wedge \cdots \wedge w_{k}]
     \end{align*}
     The image of this function consists of the set
-    \[ \{[\eta]\mid \operatorname{rk}(V\xrightarrow{(-)\wedge\eta}\wedge^{k+1}V)\leqslant n-k\}, \]
+    \[ \{[\eta]\mid \operatorname{rk}(V\xrightarrow{(-)\wedge\eta}\wedge^{k+1}V)\leq n-k\}, \]
     which can be described as the vanishing locus of some minors of the corresponding matrix once we fix a basis.
 \end{defn}
 
@@ -990,7 +990,7 @@ and we defined the \textit{Schubert cells} as $\Sigma_{a,b}^{\circ}=\Sigma_{a,b}
 
 \begin{thm}
     We have
-    \[ A:=A(\mathbb{G}(1,3))=\oplus_{0\leqslant b\leqslant a \leqslant 2}\mathbb{Z} \sigma_{a,b} \]
+    \[ A:=A(\mathbb{G}(1,3))=\oplus_{0\leq b\leq a \leq 2}\mathbb{Z} \sigma_{a,b} \]
     with multiplication given as follows:
     \begin{itemize}
 	\item $A^{1}\times A^{1}\to A^{2}\colon \sigma_{1,0}^{2}=\sigma_{1,1}+\sigma_{2,0}$;
@@ -1097,6 +1097,8 @@ hence the intersection has the expected codimension at $M$.
 A similar argument shows the same for $M\in \Sigma_{1,1}$, so the two cycles are indeed generically transverse.
 
 \subsection{A geometric picture}
+
+Brief discussion following \cite[\S 3.4.1]{eh16}.
 
 \printbibliography
 \vfill
