@@ -1164,6 +1164,62 @@ Hence we can write
   We will re-prove this relation soon.
 \end{exmp}
 
+\begin{defn}
+  Consider the following $3$ types of pieces:
+  \begin{itemize}
+    \item \includegraphics[scale=.2]{pictures/triangle0} $0$-triangle,
+    \item \includegraphics[scale=.2]{pictures/triangle1} $1$-triangle, and
+    \item \includegraphics[scale=.2]{pictures/rhombus} rhombus.
+  \end{itemize}
+  A \textit{Knutson--Tao puzzle} of size $n \in \mathbb{N}$ is a decomposition of a lattice triangle of side-length $n$ into lattice polygons such that
+  \begin{itemize}
+    \item all edges are labelled \color{red}$0$ \color{black} or \color{blue}$1$\color{black}, and
+    \item every region is a puzzle piece as above.
+  \end{itemize}
+\end{defn}
+
+\begin{exmp}
+  Some valid Knutson--Tao puzzles would be
+  \begin{figure}[H]
+    \centering
+    \includegraphics[scale=.7]{pictures/knutsontaoexmp}
+  \end{figure}
+\end{exmp}
+
+Knutson--Tao puzzles compute products of Schubert classes on Grassmannians:
+
+\begin{thm}
+  Given two $n$-strings $\alpha,\beta \in \{0, 1\}^{n}$ with $\sum_{i} \alpha_{i} = \sum_{i} \beta_{i} = r$, write in $A(G(r,n))$
+  \[ s_{\alpha}\cdot s_{\beta} = \sum_{\gamma} m_{\alpha\beta}^{\gamma} s_{\gamma} \]
+  for some integers $m_{\alpha\beta}^{\gamma} \in \mathbb{Z}$.
+  Then
+  \begin{figure}[H]
+    \centering
+    \includegraphics[scale=.7]{pictures/knutsontaocoefficients}
+  \end{figure}
+\end{thm}
+
+\begin{rem}
+  The coefficients $m_{\alpha\beta}^{\gamma}$ are well-defined.
+\end{rem}
+
+\begin{exmp}
+  We compute $\sigma_{1,0}^{2} = s_{(0,1,0,1)}^{2}$ using Knutson--Tao puzzles:
+  \begin{figure}[H]
+    \centering
+    \includegraphics[scale=.7]{pictures/knutsontaosum}
+  \end{figure}
+\end{exmp}
+
+The previous theorem allows us to derive some general symmetries of Schubert calculus:
+
+\begin{cor}
+  With the same notation as in the theorem, we have the following relations:
+  \begin{enumerate}[label=(\roman*)]
+    \item Rotation: $m_{\alpha^{\vee}\beta^{\vee}}^{\gamma} = m_{\beta^{\vee}\gamma^{\vee}}^{\alpha} = m_{\gamma^{\vee}\alpha^{\vee}}^{\beta}$, where $\alpha_{i}^{\vee} := \alpha_{n - i}$.
+    \item Reflection: $m_{\alpha\beta}^{\gamma} = m_{\bar{\beta}\bar{\alpha}}^{\bar{\gamma}}$, where $\bar{\alpha}_{i} := 1 - \alpha_{n - i}$.
+  \end{enumerate}
+\end{cor}
 
 \bibliographystyle{alpha}
 \bibliography{main}
