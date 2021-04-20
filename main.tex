@@ -15,7 +15,7 @@
 \usepackage[noabbrev]{cleveref}
 
 \theoremstyle{plain}
-\newtheorem{thm}{Theorem}
+\newtheorem{thm}{Theorem}[section]
 \newtheorem{thmdefn}[thm]{Theorem-Definition}
 \newtheorem{lm}[thm]{Lemma}
 \newtheorem{prop}[thm]{Proposition}
@@ -1220,6 +1220,118 @@ The previous theorem allows us to derive some general symmetries of Schubert cal
     \item Reflection: $m_{\alpha\beta}^{\gamma} = m_{\bar{\beta}\bar{\alpha}}^{\bar{\gamma}}$, where $\bar{\alpha}_{i} := 1 - \alpha_{n - i}$.
   \end{enumerate}
 \end{cor}
+
+\subsection{Introduction to Chern classes}
+
+Main characters: $X$ a smooth connected $k$-variety and $\mathscr{E}$ a rank $r$ vector bundle on $X$ (=locally free sheaf of $\mathscr{O}_{X}$-modules of rank $r$).
+
+Many interesting subvarieties $Y \subseteq X$ can be written as:
+
+\begin{itemize}
+  \item Vanishing locus of a family of sections of $\mathscr{E}$.
+  \item Degeneracy locus of a collection of sections of $\mathscr{E}$ (i.e.~locus where they are linearly dependent).
+\end{itemize}
+
+These subvarieties can be studied systematically with the theory of Chern classes, which allows us to translate questions of intersection theory into questions of linear algebra.
+
+\subsection{The  first Chern class of a line bundle}
+
+Let $\mathscr{L}$ be a line bundle on $X$.
+A reational section $\sigma \in \Gamma(X, \mathscr{L} \otimes_{\mathscr{O}_{X}} \mathscr{K}_{X})$ (where $\mathscr{K}_{X}$ is the constant sheaf of rational functions) defines a Cartier divisor $D_{\sigma}$ as follows.
+Choose $U \subseteq X$ a non-empty Zariski-open subset such that $\mathscr{L}|_{U} \cong \mathscr{O}_{U}$.
+We can then write $\sigma_{U} = f_{U} / g_{U}$ for some $f_{U}, g_{U} \in \mathscr{O}_{X}(U)$.
+Define $(D_{\sigma})|_{U} := \operatorname{div}(f_{U}) - \operatorname{div}(g_{U})$.
+Then glue these objects to a divisor $D_{\sigma}$ on $X$.
+Given another rational section $\tau$ of $\mathscr{L}$, we have $\sigma = f \tau$ for some $f \in K(X) = \Gamma(X, \mathscr{K}_{X})$, and so $D_{\sigma} = \operatorname{div}(f) + D_{\tau}$, which implies that
+\[ D_{\sigma} = D_{\tau} \]
+in $A^{1}$.
+
+\begin{defn}
+  The element $c_{1}(\mathscr{L}) := [D_{\sigma}] \in A^{1}(X)$ is called the \textit{first Chern class} of $\mathscr{L}$.
+\end{defn}
+
+\subsection{Axiomatic definition of Chern classes}
+
+More generally, for every vector bundle $\mathscr{E}$ on $X$ it is possible to define classes $c_{i}(\mathscr{E}) \in A^{i}(X)$ for all $i \geq 0$ satisfying many useful properties:
+
+\begin{thm}
+  There is a unique way of assigning to every smooth variety $X$ and every vector bundle $\mathscr{E}$ on $X$ a class
+  \[ c(\mathscr{E}) = 1 + c_{1}(\mathscr{E}) + c_{2}(\mathscr{E}) + \ldots \in A(X) \]
+  with $c_{i}(\mathscr{E}) \in A^{i}(X)$, so that:
+  \begin{enumerate}[label=(\roman*)]
+    \item if $\mathscr{L}$ is a line bundle on $X$, then
+      \[ c(\mathscr{L}) = 1 + c_{1}(\mathscr{L}), \]
+      where $c_{1}(\mathscr{L})$ is the class defined before;
+    \item given global sections $\tau_{0}, \ldots, \tau_{r-i} \in \Gamma(X,\mathscr{E})$ such that the locus $D \subseteq X$ where they are linearly dependent has codimension $i$, then
+      \[ c_{i}(\mathscr{E}) = [D] \in A^{i}(X); \]
+    \item for every short exact sequence of vector bundles
+      \[ 0 \to \mathscr{E}' \to \mathscr{E} \to \mathscr{E}'' \to 0 \]
+      we have \textit{Whitney's formula}:
+      \[ c(\mathscr{E}) = c(\mathscr{E}') \cdot c(\mathscr{E}''); \]
+    \item for every morphism of smooth varieties $\varphi \colon Y \to X$ we have
+      \[ \varphi^{*}c(\mathscr{E}) = c(\varphi^{*}\mathscr{E}). \]
+  \end{enumerate}
+\end{thm}
+
+\begin{defn}
+  We call
+  \begin{itemize}
+    \item $c(\mathscr{E}) \in A(X)$ the \textit{total Chern class} of $\mathscr{E}$, and
+    \item $c_{i}(\mathscr{E}) \in A^{i}(X)$ the \textit{$i$-th Chern class} of $\mathscr{E}$.
+  \end{itemize}
+\end{defn}
+
+\begin{cor}\label{cor:filtration}
+  If $\mathscr{E}$ is a vector bundle on $X$ admitting a filtration
+  \[ 0 = \mathscr{E}_{0} \subset \mathscr{E}_{1} \subset \ldots \subset \mathscr{E}_{n} = \mathscr{E} \]
+  by subvector bundles $\mathscr{E}_{i}$ such that the corresponding quotients
+  \[ \mathscr{L}_{i} := \mathscr{E}_{i} / \mathscr{E}_{i+1} \]
+  are again vector bundles, then
+  \[ c(\mathscr{E}) = \prod_{i=1}^{n} c(\mathscr{L}_{i}) = c\left(\oplus_{i=1}^{n}\mathscr{L}_{i}\right). \]
+\end{cor}
+
+\subsection{The splitting principle}
+
+\begin{lm}[Splitting construction]\label{lm:splitting}
+  Let $X$ be a smooth connected variety and $\mathscr{E}$ a vector bundle on $X$.
+  Then there exist a smooth connected variety $Y$ and a morphism $\varphi \colon Y \to X$ such that:
+  \begin{enumerate}[label=(\roman*)]
+    \item the map $\varphi^{*} \colon A(X) \to A(Y)$ is injective, and
+    \item the vector bundle $\varphi^{*}\mathscr{E}$ on $Y$ admits a filtration
+      \[ 0 = \mathscr{E}_{0} \subset \mathscr{E}_{1} \subset \ldots \subset \mathscr{E}_{r} = \varphi^{*}\mathscr{E} \]
+      by subvector bundles $\mathscr{E}_{i}$ such that every quotient $\mathscr{L}_{i} := \mathscr{E}_{i} / \mathscr{E}_{i+1}$ is a line bundle.
+  \end{enumerate}
+  \begin{proof}
+    (Sketch) We construct $Y$ by induction on $r = \operatorname{rk}(\mathscr{E})$.
+    If $r \in \{0,1\}$, then there is nothing to show.
+    If $r \geq 2$, then define $Y_{1} := \mathbb{P}(\mathscr{E}) \xrightarrow{\pi} X$.
+    Then $\pi^{*}\mathscr{E}$ contains the tautological subbundle $\mathscr{S} \subseteq \pi^{*}\mathscr{E}$, giving a short exact sequence of vector bundles
+    \[ 0 \to \mathscr{S} \to \pi^{*}\mathscr{E} \to \mathscr{Q} \to 0. \]
+    Moreover, $\pi^{*} \colon A(X) \to A(Y_{1})$ is injective.
+    Now replace $(X,\mathscr{E})$ by $(Y_{1},\mathscr{Q})$...
+  \end{proof}
+\end{lm}
+
+\begin{cor}[Splitting principle]
+  Every identity between combinations of Chern classes holds for all vector bundles as soon as it holds for those which are direct sums of line bundles.
+  \begin{proof}
+    Combine \Cref{lm:splitting} and \Cref{cor:filtration}.
+  \end{proof}
+\end{cor}
+
+\begin{exmp}
+  We have the following identities:
+  \begin{enumerate}
+    \item If $\mathscr{E}$ is a vector bundle of rank $r$, then
+      \[ c_{i}(\mathscr{E}) = 0 \text{ for all } i > r. \]
+    \item If $\mathscr{E}^{\vee}$ is the dual bundle of $\mathscr{E}$, then
+      \[ c_{i}(\mathscr{E}^{\vee}) = (-1)^{r}c_{i}(\mathscr{E}). \]
+    \item If $\det(\mathscr{E}) := \bigwedge^{r}\mathscr{E}$ is the determinant line bundle, then
+      \[ c_{1}(\det(\mathscr{E})) = c_{1}(\mathscr{E}). \]
+    \item If $\mathscr{E}_{i}$ has rank $r_{i}$ for $i \in \{1,2\}$, then
+      \[ c_{1}(\mathscr{E}_{1} \otimes \mathscr{E}_{2}) = r_{2}c_{1}(\mathscr{E}_{1}) + r_{1}c_{1}(\mathscr{E}_{2}). \]
+  \end{enumerate}
+\end{exmp}
 
 \bibliographystyle{alpha}
 \bibliography{main}
