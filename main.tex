@@ -1,7 +1,5 @@
 \documentclass[12pt,a4paper]{amsart}
 
-\usepackage{libertine}
-\usepackage[libertine]{newtxmath}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage[british]{babel}
@@ -15,8 +13,6 @@
 \usepackage{hyperref}
 \urlstyle{same}
 \usepackage[noabbrev]{cleveref}
-\usepackage[backend=biber,style=alphabetic]{biblatex}
-\addbibresource{main.bib}
 
 \theoremstyle{plain}
 \newtheorem{thm}{Theorem}
@@ -96,7 +92,7 @@ mark = at position 0.5 with
 
 The main reference for this seminar is the book \cite{eh16}.
 
-\section{The Chow ring (16.12.2020) --- Ivan Zaccanelli}
+\section{Ivan Zaccanelli: The Chow ring (16.12.2020)}
 
 \subsection{Introduction}
 
@@ -356,7 +352,7 @@ so that $\Psi=\cap_{i=1}^{4}Z_{i}\subseteq \mathcal{H}$ is closed.
 Then $[\Psi]=[\cap_{i}Z_{i}]=\prod_{i}[Z_{i}]$, assuming that the intersections are generically transverse.
 So if things work out well and we are a bit careful, we can obtain the answer as the degree \cite[Propostion 1.21]{eh16} of some zero cycle $[\Psi]$ in our (smooth, projective) parameter space $\mathcal{H}$.
 
-\section{Basic computational tools (13.01.2021) --- Jin Li}
+\section{Jin Li: Basic computational tools (13.01.2021)}
 
 \subsection{Recollections}
 
@@ -615,7 +611,7 @@ But in the case of affine stratifications we have the following:
     The classes of the closed strata in an affine stratification of a scheme $X$ form a basis of $A(X)$.
 \end{thm}
 
-\section{Grassmannians and Schubert varieties (20.01.21) --- Vincent Gajda}
+\section{Vincent Gajda: Grassmannians and Schubert varieties (20.01.21)}
 
 \textbf{Goal:} introduce Grassmannians (working always over $\mathbb{C}$ or over an algebraically closed field of characteristic $0$).
 
@@ -920,7 +916,7 @@ This stratification of $\mathbb{G}(1,3)$ depends on the chosen flag, but the cla
 Indeed, any two flags $\mathcal{V}$ and $\mathcal{V}'$ are related by a $\operatorname{GL}_{4}$ action, so the Schubert cycles $\Sigma_{a,b}(\mathcal{V})$ and $\Sigma_{a,b}(\mathcal{V}')$ are $\operatorname{GL}_{4}$-translates.
 Since $\operatorname{GL}_{4}$ acts transitively on lines in $\mathbb{P}^{3}$, we deduce that $[\Sigma_{a,b}(\mathcal{V})]$ does not depend on the chosen flag.
 
-\section{How many lines intersect 4 random line in space? (27.01.2021) --- Fabian Kertels}
+\section{Fabian Kertels: How many lines intersect 4 random line in space? (27.01.2021)}
 
 \textbf{Goals:}
 \begin{itemize}
@@ -1100,7 +1096,77 @@ A similar argument shows the same for $M\in \Sigma_{1,1}$, so the two cycles are
 
 Brief discussion following \cite[\S 3.4.1]{eh16}.
 
-\printbibliography
+\section{Luca Terenzi: Knutson--Tao puzzles and Chern classes (03.02.2021)}
+Notation: $k$ an algebraicallly closed field of characteristic $0$ (e.g.~$k = \mathbb{C}$).
+
+\subsection{Knutson--Tao puzzles}
+
+Main character: $\mathbb{G}(1,3) = G(2,4)$, the Grassmannian of lines in $\mathbb{P}^{3}$.
+Recall from the last talk that the Chow ring $A(G(2,4))$ is freely generated as a graded abelian group by the Schubert classes
+\[ \sigma_{a,b} = [ \Sigma_{a,b}(\mathcal{V}) ] \in A^{a+b} \]
+for $2 \geq a \geq b \geq 0$.
+They satisfy the relation
+\[ \sigma_{1}^{2} = \sigma_{1,0}^{2} = \sigma_{1,1} + \sigma_{2,0} \]
+in $A^{2}$.
+We established it in $2$ different ways:
+
+\begin{enumerate}
+  \item With the method of undetermined coefficients.
+    Write $\sigma_{1,0}^{2} = a\sigma_{1,1} + b\sigma_{2,0}$ for some $a,b \in \mathbb{Z}$.
+    Then determine $a$ and $b$ by multiplying this relation with suitable classes (i.e.~$\sigma_{2,0}$, $\sigma_{1,1}$).
+  \item By static specialization.
+    Choose two complete flags $\mathcal{V}$ and $\mathcal{V}'$ so that
+    \begin{enumerate}[label=(\roman*)]
+      \item the cycles $\Sigma_{1,0}(\mathcal{V})$ and $\Sigma_{1,0}(\mathcal{V}')$ intersect generically transversely, and
+      \item the intersection $\Sigma_{1,0}(\mathcal{V}) \cap \Sigma_{1,0}(\mathcal{V}')$ can be easily described geometrically.
+    \end{enumerate}
+    Then compute $[\Sigma_{1,0}(\mathcal{V})] \cdot [\Sigma_{1,0}(\mathcal{V}')] = [\Sigma_{1,0}(\mathcal{V}) \cap \Sigma_{1,0}(\mathcal{V}')]$.
+\end{enumerate}
+
+\begin{rem}
+  In both cases, one cannot avoid giving an explicit geometric interpretation to some products of Schubert classes.
+  Doing the same in general (i.e.~for $G(r,n)$ with $r,n \gg 0$) seems really difficult.
+\end{rem}
+
+Knutson--Tao puzzles allow us to compute products of general Schubert clases in a purely combinatorial way!
+
+But first, let us change the notation for Schubert classes a little bit.
+Let $V$ be a $k$-vector space of dimension $n \geq 0$, and let $r \leq n$ be a natural number.
+Consider $G(r,V) \cong G(r,n)$.
+Fix a complete flag $\mathcal{V}$ given by subspaces
+\[ 0 = V_{0} \subset V_{1} \subset \ldots \subset V_{n} = V \]
+with $\dim(V_{i}) = i$.
+Then, to every $r$-tuple
+\[ a = (a_{1}, \ldots, a_{r}) \in \mathbb{N}^{r} \]
+with $n - r \geq a_{1} \geq \ldots \geq a_{r} \geq 0$ we associate the Schubert cycle $\Sigma_{a}(\mathcal{V})$ given by the set
+\[ \{ W \in G(r,n) \mid \dim(V_{n-r+i-a_{i}} \cap W) \geq i \text{ for all }i \}. \]
+Geometric intuition: for a general $W \in G(r,n)$, we have
+\[ \dim(V_{n-r+j} \cap W) = \begin{cases}
+  0, & j < 0 \\
+  j, & j\geq 0.
+\end{cases} \]
+Hence we have $W \in \Sigma_{a}(\mathcal{V})$ if and only if the condition $\dim(V_{n-r+j} \cap W) \geq i$ is satisfied at least $a_{i}$ steps earlier than expected.
+Equivalently, for $W \in G(r,n)$ consider the sequence of subspaces of $W$ given by $\mathcal{V} \cap W$, that is,
+\[ 0 = (V_{0} \cap W) \subset (V_{1} \cap W) \subset \ldots \subset (V_{n} \cap W) = W. \]
+At each step, the dimension increases by $0$ or $1$; since $\dim(W) = r$, it increases by $1$ exactly $r$ times.
+We can encode this into an $n$-string
+\[ \alpha = \alpha_{W} = (\alpha_{1}, \ldots, \alpha_{n}) \in \{ 0, 1\}^{n} \]
+such that $\sum_{i} \alpha_{i} = r$, and the cycle $\Sigma_{a}(\mathcal{V})$ is the closure of the locus
+\[ \{ W \in G(r,n) \mid \alpha_{j} = 1 \Leftrightarrow \exists i,, j = n - r + i - a_{i} \}. \]
+Summary: the sequence $a = (a_{1}, \ldots, a_{r})$ corresponds to a unique $n$-string $\alpha = (\alpha_{1}, \ldots, \alpha_{n})$ as above.
+Hence we can write
+\[ \Sigma_{a}(\mathcal{V}) = S_{\alpha}(\mathcal{V}), \quad \sigma_{a} = s_{\alpha}. \]
+
+\begin{exmp}
+  In $A(G(2,4))$ we have $\sigma_{1,0} = s_{(0,1,0,1)}$, $\sigma_{1,1} = s_{(0,1,1,0)}$ and $\sigma_{2,0} = s_{(1,0,0,1)}$.
+  The relation $\sigma_{1,0}^{2} = \sigma_{1,1} + \sigma_{2,0}$ becomes
+  \[ s_{(0,1,0,1)}^{2} = s_{(0,1,1,0)} + s_{(1,0,0,1)}. \]
+  We will re-prove this relation soon.
+\end{exmp}
+
+
+\bibliographystyle{alpha}
+\bibliography{main}
 \vfill
 
 \end{document}
