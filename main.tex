@@ -13,6 +13,7 @@
 \usepackage{hyperref}
 \urlstyle{same}
 \usepackage[noabbrev]{cleveref}
+\usepackage[margin=3cm]{geometry}
 
 \theoremstyle{plain}
 \newtheorem{thm}{Theorem}[section]
@@ -37,7 +38,7 @@
 \Crefname{rem}{Remark}{Remarks}
 
 \title[Notes on enumerative geometry]{Notes on enumerative geometry}
-\author[Pedro N\'{u}\~{n}ez]{}
+\author[Pedro N\'{u}\~{n}ez]{Pedro N\'{u}\~{n}ez}
 \address{Pedro N\'{u}\~{n}ez \newline
 \indent Albert-Ludwigs-Universit\"{a}t Freiburg, Mathematisches Institut \newline
 \indent Ernst-Zermelo-Straße 1, 79104 Freiburg im Breisgau (Germany)}
@@ -48,7 +49,7 @@
 \indent {\fontfamily{libertine}\selectfont
 I would like to thank the DFG-Graduiertenkolleg GK1821 ``Cohomological Methods in Geometry'' for their support!%
 }}
-\date{\today}
+\date{Winter Semester 2020/2021}
 
 \setcounter{tocdepth}{1}
 \sloppy
@@ -84,8 +85,8 @@ mark = at position 0.5 with
 \maketitle
 
 \begin{abstract}
-	Notes based on the Wednesday Seminar held at Freiburg during the Winter Semester 2020/2021 and typesetted by Pedro N\'{u}\~{n}ez.
-	Any errors or typos were likely introduced by myself; corrections and any other suggestions are very much appreciated!
+	Notes based on a Wednesday Seminar block that I organized at Freiburg during the Winter Semester 2020/2021.
+	Any errors or typos were likely introduced by myself; corrections and suggestions are very much appreciated!
 \end{abstract}
 
 \tableofcontents
@@ -100,14 +101,14 @@ Some instances of enumerative problems:
 
 \begin{itemize}
     \item Given $f\in K[x]$ of degree $\deg(f)=d$, what is the cardinality of the set $\{ x\in K\mid f(x)=0\}=:V(f)$?
-	\underline{Answer:} it is $d$ if the the axis $V(y)$ in the plane is not tangent to the graph of $f$, given by $V(y-f(x))$ and if $K=\bar{K}$.
+      \underline{\smash{Answer:}} it is $d$ if the the axis $V(y)$ in the plane is not tangent to the graph of $f$, given by $V(y-f(x))$ and if $K=\bar{K}$.
 	If there were some tangent intersection points we would have to take multiplicities into account.
 	\[ \rightsquigarrow \text{We want to consider }K=\mathbb{C}. \]
     \item Given $f,g\in \mathbb{C}[x_{1},x_{2}]$, with $\deg(f)=d$ and $\deg(g)=e$ such that $V(f)$ and $V(g)$ ``intersect transversally'', what is the cardinality of $V(f)\cap V(g)$?
-	\underline{Answer:} (Bézout) it is $d\cdot e$... if we look at this question in the projective plane $\mathbb{P}^{2}$.
+      \underline{\smash{Answer:}} (Bézout) it is $d\cdot e$... if we look at this question in the projective plane $\mathbb{P}^{2}$.
 	\[ \rightsquigarrow \text{We want to consider varieties in }\mathbb{P}^{n}. \]
     \item Given four lines in $\mathbb{P}^{3}$, how many lines intersect all of them?
-	\underline{Answer:} postponed to 27.01.2021.
+      \underline{\smash{Answer:}} postponed to 27.01.2021.
 \end{itemize}
 
 Let us now see a ``backwards proof'' of Bézout's theorem:
@@ -177,7 +178,7 @@ The $X_{i}$'s in the previous proposition are called the \textit{irreducible com
     $X\subseteq \mathbb{P}^{n}$ is \textit{smooth} if $\dim(X)=\dim(T_{p}X)$ for all $p\in X$.
 \end{defn}
 
-\underline{Bad news:} for intersection theory we must also take into account subschemes.
+\underline{\smash{Bad news:}} for intersection theory we must also take into account subschemes.
 In the setting above, $V(I)=V(I^{2})$.
 But problems arise naturally taking intersections.
 In $\mathbb{A}^{2}$ we have
@@ -340,15 +341,15 @@ Prototype of enumerative problem: understand the set $\Psi$ of objects of a cert
     Lines in $\mathbb{P}^{3}$ intersecting 4 given lines $L_{1}$, $L_{2}$, $L_{3}$ and $L_{4}$.
 \end{exmp}
 
-\textbullet\underline{Step 1:} Construct a suitable (smooth, projective) parameter space $\mathcal{H}$ for the objects we are interested in, e.g.~in the case of the previous example we would look at the Grassmannian $\mathcal{H}=\mathbb{G}(1,3)$ of lines in $\mathbb{P}^{3}$.
+\textbullet\underline{\smash{Step 1:}} Construct a suitable (smooth, projective) parameter space $\mathcal{H}$ for the objects we are interested in, e.g.~in the case of the previous example we would look at the Grassmannian $\mathcal{H}=\mathbb{G}(1,3)$ of lines in $\mathbb{P}^{3}$.
 
-\textbullet\underline{Step 2:} Show that for each condition imposed by our problem, the locus $Z_{i}\subseteq \mathcal{H}$ of objects satisfying that condition is closed, e.g.~in our case we would have
+\textbullet\underline{\smash{Step 2:}} Show that for each condition imposed by our problem, the locus $Z_{i}\subseteq \mathcal{H}$ of objects satisfying that condition is closed, e.g.~in our case we would have
 \[ Z_{i}=\{ L\in \mathbb{G}(1,3)\mid L\cap L_{i}\neq 0 \}, \]
 so that $\Psi=\cap_{i=1}^{4}Z_{i}\subseteq \mathcal{H}$ is closed.
 
-\textbullet\underline{Step 3:} Describe $\operatorname{CH}^{\bullet}(\mathcal{H})$ and $[Z_{i}]\in \operatorname{CH}^{\bullet}(\mathcal{H})$, which in the case of our example will be done in future talks of this seminar.
+\textbullet\underline{\smash{Step 3:}} Describe $\operatorname{CH}^{\bullet}(\mathcal{H})$ and $[Z_{i}]\in \operatorname{CH}^{\bullet}(\mathcal{H})$, which in the case of our example will be done in future talks of this seminar.
 
-\textbullet\underline{Step 4:} Calculate the product $\prod_{i}[Z_{i}]$.
+\textbullet\underline{\smash{Step 4:}} Calculate the product $\prod_{i}[Z_{i}]$.
 Then $[\Psi]=[\cap_{i}Z_{i}]=\prod_{i}[Z_{i}]$, assuming that the intersections are generically transverse.
 So if things work out well and we are a bit careful, we can obtain the answer as the degree \cite[Propostion 1.21]{eh16} of some zero cycle $[\Psi]$ in our (smooth, projective) parameter space $\mathcal{H}$.
 
@@ -1368,13 +1369,13 @@ Let $X = V(F) \subseteq \mathbb{P}^{3}$ be a smooth cubic surface ($F$ a homogen
 \subsection{Plan for enumerative problems (recall):}
 
 \begin{itemize}
-  \item \underline{Step 1:} construct suitable parameter space (smooth and projective, so that we can use intersection theory).
-  \item \underline{Step 2:} compute the Chow ring.
-  \item \underline{Step 3:} find the classes of loci of objects satisfying the conditions that we want.
-  \item \underline{Step 4:} enumerative formula.
+  \item \underline{\smash{Step 1:}} construct suitable parameter space (smooth and projective, so that we can use intersection theory).
+  \item \underline{\smash{Step 2:}} compute the Chow ring.
+  \item \underline{\smash{Step 3:}} find the classes of loci of objects satisfying the conditions that we want.
+  \item \underline{\smash{Step 4:}} enumerative formula.
     If we did all correclty, we expect something in $A_{0}(X)$.
     Hopefully with all coefficients positive ($\Rightarrow \exists$ solution).
-  \item \underline{Step5:} verify (e.g.~no multiplicities).
+  \item \underline{\smash{Step 5:}} verify (e.g.~no multiplicities).
     This is usually the hardest part.
     Many technkiques were developed to tackle this as a result.
 \end{itemize}
@@ -1382,8 +1383,8 @@ Let $X = V(F) \subseteq \mathbb{P}^{3}$ be a smooth cubic surface ($F$ a homogen
 \subsection{Where do we stand?}
 
 \begin{itemize}
-  \item \underline{Step 1:} $\mathbb{G}(1,3)$ \checkmark
-  \item \underline{Step 2:} $A(\mathbb{G}(1,3)$ \checkmark
+  \item \underline{\smash{Step 1:}} $\mathbb{G}(1,3)$ \checkmark
+  \item \underline{\smash{Step 2:}} $A(\mathbb{G}(1,3)$ \checkmark
 
     We gave a stratification of $\mathbb{G}(1,3)$ by considering the loci of lines $\Lambda \in \mathbb{G}(1,3)$ having specificed intersection (dimension of intersection) with a complete flag
     \[ p \in L \subseteq H \subseteq \mathbb{P}^{3}. \]
@@ -1405,8 +1406,8 @@ Let $X = V(F) \subseteq \mathbb{P}^{3}$ be a smooth cubic surface ($F$ a homogen
 
 Today's plan:
 \begin{itemize}
-  \item \underline{Step 3:} we compute the class of lines in $\mathbb{G}(1,3)$ contained in a given smooth cubic $X$.
-  \item \underline{Step 4:} we expect to get the class $27\sigma_{2,2}$ as a result.
+  \item \underline{\smash{Step 3:}} we compute the class of lines in $\mathbb{G}(1,3)$ contained in a given smooth cubic $X$.
+  \item \underline{\smash{Step 4:}} we expect to get the class $27\sigma_{2,2}$ as a result.
 \end{itemize}
 
 We will use Chern classes for this.
@@ -1430,7 +1431,7 @@ such that:
     \[ \varphi^{*}(c(\mathscr{E})) = c(\varphi^{*}(\mathscr{E})). \]
 \end{enumerate}
 
-We've also seen the \underline{splitting principle}: ``any identity among Chern classes of bundles that is true for direct sums of line bundles is true in general''.
+We've also seen the \underline{\smash{splitting principle}}: ``any identity among Chern classes of bundles that is true for direct sums of line bundles is true in general''.
 Hence we may assume that $\mathscr{E} = \oplus_{i=1}^{r} \mathscr{L}_{i}$; $c(\mathscr{L}_{i}) = 1 + c_{1}(\mathscr{L}_{i})$, so by Whitney's formula
 \[ c(\mathscr{E}) = \prod_{i=1}^{r} (1 + c_{1}(\mathscr{L}_{i})). \]
 This implies that there are no terms of degree higher than $r = \operatorname{rk}(\mathscr{E})$, i.e.~we can write $c(\mathscr{E})$ as
@@ -1499,7 +1500,7 @@ Hence
 Let's use this to compute $c_{4}(\operatorname{Sym}^{3}\mathscr{S}^{*})$.
 The splitting principle allows us to pretend that $\mathscr{S}^{*} = \mathscr{L} \oplus \mathscr{M}$, where $\mathscr{L}$ and $\mathscr{M}$ are line bundles.
 
-\underline{Notation:} $\alpha := c_{1}(\mathscr{L})$ and $\beta := c_{1}(\mathscr{M})$.
+\underline{\smash{Notation:}} $\alpha := c_{1}(\mathscr{L})$ and $\beta := c_{1}(\mathscr{M})$.
 
 Whitney's formula implies that
 \[ c(\mathscr{S}^{*}) = (1 + \alpha)(1 + \beta) = 1 + (\alpha + \beta) + \alpha\beta. \]
@@ -1525,7 +1526,7 @@ Collecting all terms of degree $4$ we obtain finally
 
 Since the degree is positive, we can already deduce that the space of lines in $X$ is non-empty, and that there are at most $27$ lines!
 
-Up until now, we have done a \textit{virtual count}, that is, we have not yet performed \underline{Step 5} in our plan.
+Up until now, we have done a \textit{virtual count}, that is, we have not yet performed \underline{\smash{Step 5}} in our plan.
 It would remain to verify reducedness.
 For this, it would be enough to check smoothness.
 To do so, we need to understand the tangent space of the locus
